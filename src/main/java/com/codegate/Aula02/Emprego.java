@@ -1,12 +1,29 @@
 package com.codegate.Aula02;
 
+import com.sun.istack.NotNull;
+import org.hibernate.annotations.BatchSize;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+import static javax.persistence.GenerationType.AUTO;
 
 @Entity
 public class Emprego {
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
     private long id;
+    @NotNull
+    @Size(min=4)
     private String titulo;
+    @NotNull
+    @Size(min=4)
     private String empresa;
+    @NotNull
+    @Size(min=10)
     private String descricao;
 
     public long getId() {
